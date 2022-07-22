@@ -2,10 +2,88 @@
 //
 
 #include <iostream>
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    string keepPlaying = "y";
+
+    while (keepPlaying == "y") {
+        string playerChoice = "";
+        while (playerChoice != "rock" && playerChoice != "paper" && playerChoice != "scissors" &&
+            playerChoice != "Rock" && playerChoice != "Paper" && playerChoice != "Scissors") {
+            std::cout << "Enter rock, paper, or scissors: ";
+            std::cin >> playerChoice;
+        }
+
+        int computerChoice = rand() % 3;
+
+        // Computer chooses scissors
+        if (computerChoice == 0) {
+            std::cout << "Computer chooses scissors.\n";
+
+            if (playerChoice == "paper" || playerChoice == "Paper") {
+                std::cout << "You lose. Oof. Try again? Enter y/n: ";
+                std::cin >> keepPlaying;
+            }
+
+            if (playerChoice == "rock" || playerChoice == "Rock") {
+                std::cout << "You win! Nice. Play again? Enter y/n: ";
+                std::cin >> keepPlaying;
+            }
+
+            if (playerChoice == "scissors" || playerChoice == "Scissors") {
+                std::cout << "Tie! You don't lose but you ain't a winner either. Try again? Enter y/n: ";
+                std::cin >> keepPlaying;
+            }
+        }
+
+        // Computer chooses paper
+        if (computerChoice == 1) {
+            std::cout << "Computer chooses paper.\n";
+
+            if (playerChoice == "rock" || playerChoice == "Rock") {
+                std::cout << "You lose. Oof. Try again? Enter y/n: ";
+                std::cin >> keepPlaying;
+            }
+
+            if (playerChoice == "scissors" || playerChoice == "Scissors") {
+                std::cout << "You win! Nice. Play again? Enter y/n: ";
+                std::cin >> keepPlaying;
+            }
+
+            if (playerChoice == "paper" || playerChoice == "Paper") {
+                std::cout << "Tie! You don't lose but you ain't a winner either. Try again? Enter y/n: ";
+                std::cin >> keepPlaying;
+            }
+        }
+
+        // Computer chooses rock
+        if (computerChoice == 2) {
+            std::cout << "Computer chooses rock.\n";
+
+            if (playerChoice == "scissors" || playerChoice == "Scissors") {
+                std::cout << "You lose. Oof. Try again? Enter y/n: ";
+                std::cin >> keepPlaying;
+            }
+
+            if (playerChoice == "paper" || playerChoice == "Paper") {
+                std::cout << "You win! Nice. Play again? Enter y/n: ";
+                std::cin >> keepPlaying;
+            }
+
+            if (playerChoice == "rock" || playerChoice == "Rock") {
+                std::cout << "Tie! You don't lose but you ain't a winner either. Try again? Enter y/n: ";
+                std::cin >> keepPlaying;
+            }
+        }
+
+        while (keepPlaying != "y" && keepPlaying != "n") {
+            std::cout << "Enter y/n: ";
+            std::cin >> keepPlaying;
+        }
+    }
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
